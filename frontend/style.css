@@ -1,0 +1,2097 @@
+/* =========================================================
+   AI DOCUMENTATION GENERATOR
+   Professional Documentation UI
+   ========================================================= */
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   ROOT VARIABLES
+   ========================================================= */
+
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+
+    --text: #172033;
+    --text-dark: #101828;
+    --muted: #667085;
+
+    --border: #e6eaf0;
+    --border-dark: #d0d5dd;
+
+    --card: #ffffff;
+    --background: #f5f7fb;
+
+    --code-bg: #0f172a;
+    --code-text: #e2e8f0;
+
+    --success: #15803d;
+    --success-bg: #dcfce7;
+
+    --warning: #7a5a00;
+    --warning-bg: #fff8e6;
+
+    --danger: #b42318;
+    --danger-bg: #fee4e2;
+}
+
+
+/* =========================================================
+   BODY
+   ========================================================= */
+
+body {
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 10% 0%,
+            rgba(37, 99, 235, 0.10),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(124, 58, 237, 0.08),
+            transparent 30%
+        ),
+        var(--background);
+
+    color: var(--text);
+    min-height: 100vh;
+    position: relative;
+}
+
+
+/* =========================================================
+   BACKGROUND
+   ========================================================= */
+
+.background-glow {
+    position: fixed;
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.12;
+
+    pointer-events: none;
+    z-index: 0;
+}
+
+.glow-one {
+    background: #2563eb;
+    top: -150px;
+    left: -100px;
+}
+
+.glow-two {
+    background: #7c3aed;
+    right: -100px;
+    top: 400px;
+}
+
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
+
+.container {
+    width: 100%;
+    max-width: 1120px;
+
+    margin: auto;
+    padding: 35px 24px 25px;
+
+    position: relative;
+    z-index: 1;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 30px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-icon {
+    width: 56px;
+    height: 56px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #4f46e5
+        );
+
+    color: white;
+    font-size: 19px;
+    font-weight: 800;
+
+    box-shadow:
+        0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
+.header h1 {
+    font-size: 28px;
+    margin-bottom: 5px;
+    letter-spacing: -0.5px;
+}
+
+.header p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.header-badge {
+    padding: 8px 13px;
+
+    border-radius: 30px;
+
+    background: #eef4ff;
+    color: var(--primary);
+
+    font-size: 12px;
+    font-weight: 700;
+
+    border: 1px solid #d8e5ff;
+}
+
+
+/* =========================================================
+   UPLOAD CARD
+   ========================================================= */
+
+.upload-card {
+    background: var(--card);
+
+    border-radius: 22px;
+    padding: 48px;
+
+    text-align: center;
+
+    border: 1px solid var(--border);
+
+    box-shadow:
+        0 20px 50px rgba(15, 23, 42, 0.07);
+}
+
+.section-icon {
+    font-size: 38px;
+    margin-bottom: 14px;
+}
+
+.upload-card h2 {
+    font-size: 27px;
+    margin-bottom: 10px;
+}
+
+.description {
+    max-width: 680px;
+
+    margin: auto;
+
+    color: var(--muted);
+
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   UPLOAD AREA
+   ========================================================= */
+
+.upload-area {
+    display: block;
+
+    margin: 30px auto 20px;
+
+    max-width: 680px;
+
+    padding: 48px 20px;
+
+    border: 2px dashed #b9c7dd;
+
+    border-radius: 18px;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.2s,
+        background 0.2s,
+        transform 0.2s;
+}
+
+.upload-area:hover,
+.upload-area.dragover {
+    border-color: var(--primary);
+
+    background: #f7faff;
+
+    transform: translateY(-2px);
+}
+
+.upload-icon {
+    width: 52px;
+    height: 52px;
+
+    margin: 0 auto 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: #eef4ff;
+
+    color: var(--primary);
+
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.upload-area h3 {
+    font-size: 17px;
+    margin-bottom: 7px;
+}
+
+.upload-area p {
+    color: #475467;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.upload-area span {
+    color: #98a2b3;
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   FILE INFO
+   ========================================================= */
+
+.file-info {
+    max-width: 680px;
+
+    margin: 18px auto;
+
+    padding: 14px 17px;
+
+    background: #f0f7ff;
+
+    border: 1px solid #c7dcff;
+
+    border-radius: 13px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    text-align: left;
+}
+
+.file-icon {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: white;
+}
+
+.file-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.file-details strong {
+    display: block;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.file-details p {
+    color: var(--muted);
+
+    font-size: 12px;
+
+    margin-top: 3px;
+}
+
+.remove-file {
+    border: none;
+    background: transparent;
+
+    font-size: 24px;
+
+    color: #98a2b3;
+
+    cursor: pointer;
+
+    padding: 4px 8px;
+}
+
+.remove-file:hover {
+    color: #b42318;
+}
+
+
+/* =========================================================
+   ANALYZE BUTTON
+   ========================================================= */
+
+.analyze-button {
+    width: 100%;
+    max-width: 680px;
+
+    padding: 15px 18px;
+
+    border: none;
+    border-radius: 11px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #4f46e5
+        );
+
+    color: white;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+.analyze-button:hover:not(:disabled) {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px rgba(37, 99, 235, 0.25);
+}
+
+.analyze-button:disabled {
+    background: #a8b4c7;
+
+    cursor: not-allowed;
+
+    box-shadow: none;
+}
+
+.button-arrow {
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+.loading {
+    margin: 25px auto 0;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 14px;
+
+    color: #475467;
+
+    text-align: left;
+}
+
+.spinner {
+    width: 30px;
+    height: 30px;
+
+    border: 4px solid #dbe7ff;
+
+    border-top-color: var(--primary);
+
+    border-radius: 50%;
+
+    animation:
+        spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =========================================================
+   RESULTS
+   ========================================================= */
+
+.result-section {
+    margin-top: 28px;
+}
+
+.result-header {
+    background: white;
+
+    padding: 27px;
+
+    border-radius: 18px;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    border: 1px solid var(--border);
+
+    box-shadow:
+        0 8px 25px rgba(15, 23, 42, 0.04);
+}
+
+.success-label {
+    color: #15803d;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    margin-bottom: 7px;
+
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.result-header h2 {
+    margin-bottom: 5px;
+    font-size: 23px;
+}
+
+.result-header p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.status-badge {
+    padding: 9px 16px;
+
+    border-radius: 30px;
+
+    background: #dcfce7;
+    color: #166534;
+
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.status-badge.invalid {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+
+/* =========================================================
+   STATS
+   ========================================================= */
+
+.stats {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 17px;
+
+    margin-top: 18px;
+}
+
+.stat-card {
+    background: white;
+
+    padding: 21px;
+
+    border-radius: 16px;
+
+    border: 1px solid var(--border);
+
+    display: flex;
+
+    gap: 14px;
+
+    align-items: center;
+}
+
+.stat-icon {
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: #f2f6ff;
+
+    font-size: 22px;
+}
+
+.warning-icon {
+    background: #fff8e6;
+}
+
+.stat-card strong {
+    font-size: 25px;
+
+    display: block;
+
+    line-height: 1;
+}
+
+.stat-card p {
+    color: var(--muted);
+
+    font-size: 12px;
+
+    margin-top: 6px;
+}
+
+
+/* =========================================================
+   VALIDATION
+   ========================================================= */
+
+.validation-card {
+    background: white;
+
+    margin-top: 18px;
+
+    padding: 24px;
+
+    border-radius: 16px;
+
+    border: 1px solid var(--border);
+}
+
+.validation-title {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 16px;
+}
+
+.validation-title h3 {
+    font-size: 17px;
+    margin-bottom: 4px;
+}
+
+.validation-title p {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.validation-icon {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #dcfce7;
+
+    color: #15803d;
+
+    font-weight: 800;
+}
+
+.warning {
+    margin-top: 12px;
+
+    padding: 12px 15px;
+
+    background: #fff8e6;
+
+    border: 1px solid #f5d98b;
+
+    border-radius: 9px;
+
+    color: #7a5a00;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   DOCUMENTATION CARD
+   ========================================================= */
+
+.documentation-card {
+    margin-top: 18px;
+
+    background: white;
+
+    border-radius: 17px;
+
+    border: 1px solid var(--border);
+
+    overflow: hidden;
+
+    box-shadow:
+        0 8px 25px rgba(15, 23, 42, 0.04);
+}
+
+
+/* =========================================================
+   DOCUMENTATION HEADER
+   ========================================================= */
+
+.documentation-header {
+    padding: 20px 23px;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.documentation-header h3 {
+    font-size: 17px;
+}
+
+.documentation-header p {
+    color: var(--muted);
+
+    font-size: 12px;
+
+    margin-top: 4px;
+}
+
+.documentation-actions {
+    display: flex;
+
+    gap: 8px;
+
+    align-items: center;
+}
+
+.secondary-button,
+.download-button {
+    border: none;
+
+    text-decoration: none;
+
+    padding: 9px 14px;
+
+    border-radius: 8px;
+
+    font-weight: 600;
+
+    font-size: 13px;
+
+    cursor: pointer;
+}
+
+.secondary-button {
+    background: #eef2f7;
+    color: #344054;
+}
+
+.secondary-button:hover {
+    background: #e2e8f0;
+}
+
+.download-button {
+    background: #172033;
+    color: white;
+}
+
+.download-button:hover {
+    background: #000;
+}
+
+
+/* =========================================================
+   DOCUMENTATION META
+   ========================================================= */
+
+.documentation-meta {
+    display: flex;
+
+    gap: 8px;
+
+    padding: 12px 23px;
+
+    border-bottom: 1px solid var(--border);
+
+    background: #fbfcfe;
+}
+
+.documentation-meta span {
+    padding: 4px 8px;
+
+    border-radius: 5px;
+
+    background: #eef2f7;
+
+    color: #667085;
+
+    font-size: 10px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   DOCUMENTATION CONTENT
+   ========================================================= */
+
+/*
+   IMPORTANT:
+   Your Markdown renderer generates HTML inside #documentation.
+   Therefore we style the generated HTML elements directly.
+*/
+
+#documentation {
+    padding: 42px 48px;
+
+    max-height: 700px;
+
+    overflow: auto;
+
+    background: #ffffff;
+
+    color: #24292f;
+
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    word-wrap: break-word;
+}
+
+
+/* =========================================================
+   DOCUMENTATION TYPOGRAPHY
+   ========================================================= */
+
+#documentation > *:first-child {
+    margin-top: 0;
+}
+
+#documentation > *:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   HEADINGS
+   ========================================================= */
+
+#documentation h1,
+#documentation h2,
+#documentation h3,
+#documentation h4,
+#documentation h5,
+#documentation h6 {
+    color: #1f2937;
+
+    font-weight: 700;
+
+    line-height: 1.3;
+
+    letter-spacing: -0.02em;
+}
+
+#documentation h1 {
+    font-size: 32px;
+
+    margin-top: 0;
+
+    margin-bottom: 22px;
+
+    padding-bottom: 14px;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+#documentation h2 {
+    font-size: 25px;
+
+    margin-top: 38px;
+
+    margin-bottom: 16px;
+
+    padding-bottom: 8px;
+
+    border-bottom: 1px solid #eef0f3;
+}
+
+#documentation h3 {
+    font-size: 20px;
+
+    margin-top: 30px;
+
+    margin-bottom: 12px;
+}
+
+#documentation h4 {
+    font-size: 17px;
+
+    margin-top: 24px;
+
+    margin-bottom: 10px;
+}
+
+#documentation h5 {
+    font-size: 15px;
+
+    margin-top: 20px;
+
+    margin-bottom: 8px;
+}
+
+#documentation h6 {
+    font-size: 14px;
+
+    margin-top: 18px;
+
+    margin-bottom: 8px;
+
+    color: #667085;
+}
+
+
+/* =========================================================
+   PARAGRAPHS
+   ========================================================= */
+
+#documentation p {
+    margin-top: 0;
+
+    margin-bottom: 16px;
+
+    color: #344054;
+
+    line-height: 1.75;
+}
+
+
+/* =========================================================
+   BOLD / ITALIC
+   ========================================================= */
+
+#documentation strong {
+    color: #1f2937;
+
+    font-weight: 700;
+}
+
+#documentation em {
+    color: #475467;
+}
+
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+#documentation a {
+    color: #0969da;
+
+    font-weight: 500;
+
+    text-decoration: none;
+
+    transition:
+        color 0.15s ease,
+        text-decoration 0.15s ease;
+}
+
+#documentation a:hover {
+    color: #0550ae;
+
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   UNORDERED / ORDERED LISTS
+   ========================================================= */
+
+#documentation ul,
+#documentation ol {
+    margin-top: 0;
+
+    margin-bottom: 18px;
+
+    padding-left: 30px;
+
+    color: #344054;
+}
+
+#documentation ul {
+    list-style-type: disc;
+}
+
+#documentation ol {
+    list-style-type: decimal;
+}
+
+#documentation li {
+    margin-bottom: 7px;
+
+    padding-left: 4px;
+
+    line-height: 1.7;
+}
+
+#documentation li > ul,
+#documentation li > ol {
+    margin-top: 7px;
+
+    margin-bottom: 4px;
+}
+
+
+/* =========================================================
+   BLOCKQUOTES
+   ========================================================= */
+
+#documentation blockquote {
+    margin: 20px 0;
+
+    padding: 12px 18px;
+
+    border-left: 4px solid #2563eb;
+
+    background: #f6f8fa;
+
+    color: #57606a;
+
+    border-radius: 0 8px 8px 0;
+}
+
+#documentation blockquote p {
+    margin-bottom: 0;
+
+    color: #57606a;
+}
+
+
+/* =========================================================
+   INLINE CODE
+   ========================================================= */
+
+#documentation :not(pre) > code {
+    padding: 3px 6px;
+
+    border-radius: 6px;
+
+    background: #f1f3f5;
+
+    border: 1px solid #e5e7eb;
+
+    color: #c7254e;
+
+    font-family:
+        "SFMono-Regular",
+        Consolas,
+        "Liberation Mono",
+        Menlo,
+        monospace;
+
+    font-size: 0.88em;
+
+    white-space: break-spaces;
+}
+
+
+/* =========================================================
+   CODE BLOCKS
+   ========================================================= */
+
+#documentation pre {
+    margin: 20px 0;
+
+    padding: 20px;
+
+    overflow-x: auto;
+
+    border-radius: 10px;
+
+    background: #0d1117;
+
+    border: 1px solid #30363d;
+
+    box-shadow:
+        0 4px 12px rgba(15, 23, 42, 0.08);
+
+    line-height: 1.6;
+}
+
+#documentation pre code {
+    display: block;
+
+    padding: 0;
+
+    margin: 0;
+
+    background: transparent;
+
+    border: none;
+
+    color: #e6edf3;
+
+    font-family:
+        "SFMono-Regular",
+        Consolas,
+        "Liberation Mono",
+        Menlo,
+        monospace;
+
+    font-size: 13px;
+
+    line-height: 1.65;
+
+    white-space: pre;
+
+    word-break: normal;
+}
+
+
+/* =========================================================
+   TABLES
+   ========================================================= */
+
+#documentation table {
+    width: 100%;
+
+    margin: 22px 0;
+
+    border-collapse: collapse;
+
+    border-spacing: 0;
+
+    overflow: hidden;
+
+    border: 1px solid #d8dee4;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+}
+
+#documentation thead {
+    background: #f6f8fa;
+}
+
+#documentation th {
+    padding: 11px 14px;
+
+    text-align: left;
+
+    font-weight: 700;
+
+    color: #24292f;
+
+    border: 1px solid #d8dee4;
+}
+
+#documentation td {
+    padding: 11px 14px;
+
+    color: #344054;
+
+    border: 1px solid #d8dee4;
+
+    vertical-align: top;
+}
+
+#documentation tbody tr:nth-child(even) {
+    background: #fafbfc;
+}
+
+#documentation tbody tr:hover {
+    background: #f6f8fa;
+}
+
+
+/* =========================================================
+   HORIZONTAL RULE
+   ========================================================= */
+
+#documentation hr {
+    height: 1px;
+
+    margin: 30px 0;
+
+    border: none;
+
+    background: #d8dee4;
+}
+
+
+/* =========================================================
+   IMAGES
+   ========================================================= */
+
+#documentation img {
+    display: block;
+
+    max-width: 100%;
+
+    height: auto;
+
+    margin: 20px auto;
+
+    border-radius: 8px;
+
+    border: 1px solid #e5e7eb;
+}
+
+
+/* =========================================================
+   DEFINITION / MARKDOWN DETAILS
+   ========================================================= */
+
+#documentation dl {
+    margin-bottom: 18px;
+}
+
+#documentation dt {
+    font-weight: 700;
+
+    margin-top: 12px;
+}
+
+#documentation dd {
+    margin-left: 20px;
+
+    margin-bottom: 8px;
+
+    color: #475467;
+}
+
+
+/* =========================================================
+   CHECKLISTS
+   ========================================================= */
+
+#documentation input[type="checkbox"] {
+    margin-right: 7px;
+
+    vertical-align: middle;
+
+    accent-color: var(--primary);
+}
+
+
+/* =========================================================
+   CODE / PRE SCROLLBAR
+   ========================================================= */
+
+#documentation pre::-webkit-scrollbar {
+    height: 8px;
+}
+
+#documentation pre::-webkit-scrollbar-track {
+    background: #161b22;
+}
+
+#documentation pre::-webkit-scrollbar-thumb {
+    background: #484f58;
+
+    border-radius: 8px;
+}
+
+
+/* =========================================================
+   DOCUMENTATION SCROLLBAR
+   ========================================================= */
+
+#documentation::-webkit-scrollbar {
+    width: 10px;
+}
+
+#documentation::-webkit-scrollbar-track {
+    background: #f6f8fa;
+}
+
+#documentation::-webkit-scrollbar-thumb {
+    background: #c4cad3;
+
+    border-radius: 10px;
+
+    border: 2px solid #f6f8fa;
+}
+
+#documentation::-webkit-scrollbar-thumb:hover {
+    background: #98a2b3;
+}
+
+
+/* =========================================================
+   ERROR
+   ========================================================= */
+
+.error-message {
+    margin-top: 18px;
+
+    padding: 14px 18px;
+
+    background: #fee4e2;
+
+    border: 1px solid #fda29b;
+
+    color: #b42318;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   NEW ANALYSIS
+   ========================================================= */
+
+.new-analysis {
+    text-align: center;
+
+    margin: 25px 0;
+}
+
+.new-analysis p {
+    color: var(--muted);
+
+    font-size: 13px;
+
+    margin-bottom: 9px;
+}
+
+.new-analysis button {
+    border: none;
+
+    background: transparent;
+
+    color: var(--primary);
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    font-size: 13px;
+}
+
+.new-analysis button:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+    text-align: center;
+
+    margin-top: 30px;
+
+    color: #98a2b3;
+
+    font-size: 12px;
+
+    line-height: 1.8;
+}
+
+footer strong {
+    color: #667085;
+}
+
+footer span {
+    display: block;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   UTILITY
+   ========================================================= */
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================================================
+   FOCUS ACCESSIBILITY
+   ========================================================= */
+
+button:focus-visible,
+a:focus-visible,
+.upload-area:focus-visible {
+    outline: 3px solid rgba(37, 99, 235, 0.25);
+
+    outline-offset: 2px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 750px) {
+
+    .container {
+        padding: 25px 15px;
+    }
+
+    .header {
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .header-badge {
+        display: none;
+    }
+
+    .header h1 {
+        font-size: 22px;
+    }
+
+    .header p {
+        font-size: 13px;
+    }
+
+    .upload-card {
+        padding: 30px 20px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .result-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .documentation-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .documentation-actions {
+        width: 100%;
+    }
+
+    .secondary-button,
+    .download-button {
+        flex: 1;
+
+        text-align: center;
+    }
+
+    #documentation {
+        padding: 30px 24px;
+
+        font-size: 14px;
+    }
+
+    #documentation h1 {
+        font-size: 27px;
+    }
+
+    #documentation h2 {
+        font-size: 22px;
+    }
+
+    #documentation h3 {
+        font-size: 18px;
+    }
+
+    #documentation table {
+        display: block;
+
+        overflow-x: auto;
+
+        white-space: nowrap;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 450px) {
+
+    .brand {
+        align-items: flex-start;
+    }
+
+    .logo-icon {
+        width: 45px;
+        height: 45px;
+
+        border-radius: 12px;
+    }
+
+    .upload-area {
+        padding: 35px 15px;
+    }
+
+    .documentation-meta {
+        overflow-x: auto;
+
+        white-space: nowrap;
+    }
+
+    #documentation {
+        padding: 24px 18px;
+    }
+
+    #documentation h1 {
+        font-size: 24px;
+    }
+
+    #documentation h2 {
+        font-size: 20px;
+    }
+
+    #documentation h3 {
+        font-size: 17px;
+    }
+
+    #documentation pre {
+        padding: 15px;
+
+        border-radius: 8px;
+    }
+
+    #documentation pre code {
+        font-size: 12px;
+    }
+}
+
+/* =========================================================
+   FINAL DOCUMENTATION FONT OVERRIDE
+   ========================================================= */
+
+#documentation,
+#documentation *,
+#documentation h1,
+#documentation h2,
+#documentation h3,
+#documentation h4,
+#documentation h5,
+#documentation h6,
+#documentation p,
+#documentation li,
+#documentation ul,
+#documentation ol,
+#documentation table,
+#documentation th,
+#documentation td,
+#documentation blockquote {
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        Helvetica,
+        sans-serif !important;
+}
+
+
+/* Keep ONLY actual code in monospace */
+
+#documentation pre,
+#documentation pre *,
+#documentation code,
+#documentation code * {
+    font-family:
+        "SFMono-Regular",
+        Consolas,
+        "Liberation Mono",
+        Menlo,
+        monospace !important;
+}
+
+
+/* Make normal documentation text clean */
+
+#documentation p,
+#documentation li {
+    font-size: 15px !important;
+    line-height: 1.75 !important;
+}
+
+
+/* Make headings clearly different from code */
+
+#documentation h1 {
+    font-size: 32px !important;
+    font-weight: 700 !important;
+    line-height: 1.3 !important;
+}
+
+#documentation h2 {
+    font-size: 25px !important;
+    font-weight: 700 !important;
+    line-height: 1.3 !important;
+}
+
+#documentation h3 {
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+}
+
+#documentation h4 {
+    font-size: 17px !important;
+    font-weight: 700 !important;
+}
+
+
+/* Normal paragraphs */
+
+#documentation p {
+    color: #344054 !important;
+    margin-bottom: 16px !important;
+}
+
+
+/* Lists */
+
+#documentation ul,
+#documentation ol {
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif !important;
+
+    padding-left: 30px !important;
+}
+
+#documentation li {
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif !important;
+}
+
+
+/* Inline code remains code-like */
+
+#documentation :not(pre) > code {
+    font-family:
+        "SFMono-Regular",
+        Consolas,
+        "Liberation Mono",
+        Menlo,
+        monospace !important;
+}
+
+
+/* Actual code blocks */
+
+#documentation pre {
+    font-family:
+        "SFMono-Regular",
+        Consolas,
+        "Liberation Mono",
+        Menlo,
+        monospace !important;
+
+    background: #0d1117 !important;
+    color: #e6edf3 !important;
+}
+
+/* =========================================================
+   FINAL GITHUB-STYLE DOCUMENTATION POLISH
+   ========================================================= */
+
+/* Documentation container */
+#documentation {
+    padding: 42px 48px !important;
+    max-height: 700px;
+    overflow: auto;
+    word-wrap: break-word;
+
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        Helvetica,
+        sans-serif !important;
+
+    font-size: 15px !important;
+    line-height: 1.7 !important;
+
+    color: #24292f !important;
+    background: #ffffff !important;
+}
+
+
+/* =========================================================
+   HEADINGS
+   ========================================================= */
+
+#documentation h1,
+#documentation h2,
+#documentation h3,
+#documentation h4,
+#documentation h5,
+#documentation h6 {
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        Helvetica,
+        sans-serif !important;
+
+    color: #1f2937 !important;
+    font-weight: 700 !important;
+    line-height: 1.3 !important;
+    letter-spacing: -0.02em;
+}
+
+#documentation h1 {
+    font-size: 32px !important;
+    margin: 0 0 28px 0 !important;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+#documentation h2 {
+    font-size: 25px !important;
+    margin: 38px 0 16px 0 !important;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eef0f3;
+}
+
+#documentation h3 {
+    font-size: 20px !important;
+    margin: 30px 0 12px 0 !important;
+}
+
+#documentation h4 {
+    font-size: 17px !important;
+    margin: 24px 0 10px 0 !important;
+}
+
+
+/* =========================================================
+   PARAGRAPHS
+   ========================================================= */
+
+#documentation p {
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        Helvetica,
+        sans-serif !important;
+
+    color: #344054 !important;
+    font-size: 15px !important;
+    line-height: 1.75 !important;
+
+    margin: 0 0 18px 0 !important;
+}
+
+
+/* =========================================================
+   LISTS
+   ========================================================= */
+
+#documentation ul,
+#documentation ol {
+    margin: 0 0 20px 0 !important;
+    padding-left: 30px !important;
+
+    color: #344054 !important;
+
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif !important;
+}
+
+#documentation li {
+    margin-bottom: 8px !important;
+
+    line-height: 1.7 !important;
+
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif !important;
+}
+
+#documentation li > ul,
+#documentation li > ol {
+    margin-top: 8px !important;
+    margin-bottom: 8px !important;
+}
+
+
+/* =========================================================
+   STRONG / EMPHASIS
+   ========================================================= */
+
+#documentation strong {
+    color: #24292f !important;
+    font-weight: 700 !important;
+}
+
+#documentation em {
+    color: #475467;
+}
+
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+#documentation a {
+    color: #0969da !important;
+    text-decoration: none !important;
+    font-weight: 500;
+}
+
+#documentation a:hover {
+    text-decoration: underline !important;
+}
+
+
+/* =========================================================
+   INLINE CODE
+   ========================================================= */
+
+#documentation :not(pre) > code {
+    font-family:
+        "SFMono-Regular",
+        Consolas,
+        "Liberation Mono",
+        Menlo,
+        monospace !important;
+
+    font-size: 0.88em !important;
+
+    padding: 3px 6px;
+
+    border-radius: 6px;
+
+    background: #f1f3f5 !important;
+
+    border: 1px solid #e5e7eb;
+
+    color: #c7254e !important;
+}
+
+
+/* =========================================================
+   CODE BLOCKS
+   ========================================================= */
+
+#documentation pre {
+    margin: 22px 0 !important;
+    padding: 20px !important;
+
+    overflow-x: auto;
+
+    border-radius: 10px;
+
+    background: #0d1117 !important;
+
+    border: 1px solid #30363d;
+
+    box-shadow:
+        0 2px 6px rgba(16, 24, 40, 0.08);
+
+    line-height: 1.6 !important;
+}
+
+#documentation pre code {
+    display: block;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    background: transparent !important;
+    border: none !important;
+
+    color: #e6edf3 !important;
+
+    font-family:
+        "SFMono-Regular",
+        Consolas,
+        "Liberation Mono",
+        Menlo,
+        monospace !important;
+
+    font-size: 13px !important;
+    line-height: 1.65 !important;
+
+    white-space: pre !important;
+}
+
+
+/* =========================================================
+   BLOCKQUOTES
+   ========================================================= */
+
+#documentation blockquote {
+    margin: 22px 0 !important;
+
+    padding: 12px 18px !important;
+
+    border-left: 4px solid #0969da !important;
+
+    background: #f6f8fa !important;
+
+    color: #57606a !important;
+
+    border-radius: 0 8px 8px 0;
+}
+
+#documentation blockquote p {
+    margin-bottom: 0 !important;
+}
+
+
+/* =========================================================
+   TABLES
+   ========================================================= */
+
+#documentation table {
+    width: 100%;
+
+    margin: 24px 0 !important;
+
+    border-collapse: collapse;
+
+    border: 1px solid #d8dee4;
+
+    font-size: 14px;
+}
+
+#documentation thead {
+    background: #f6f8fa;
+}
+
+#documentation th {
+    padding: 12px 14px;
+
+    text-align: left;
+
+    color: #24292f;
+
+    font-weight: 700;
+
+    border: 1px solid #d8dee4;
+}
+
+#documentation td {
+    padding: 12px 14px;
+
+    color: #344054;
+
+    border: 1px solid #d8dee4;
+
+    vertical-align: top;
+}
+
+#documentation tbody tr:nth-child(even) {
+    background: #fafbfc;
+}
+
+#documentation tbody tr:hover {
+    background: #f6f8fa;
+}
+
+
+/* =========================================================
+   HORIZONTAL RULE
+   ========================================================= */
+
+#documentation hr {
+    height: 1px;
+
+    margin: 32px 0;
+
+    border: none;
+
+    background: #d8dee4;
+}
+
+
+/* =========================================================
+   IMAGES
+   ========================================================= */
+
+#documentation img {
+    display: block;
+
+    max-width: 100%;
+    height: auto;
+
+    margin: 24px auto;
+
+    border-radius: 8px;
+
+    border: 1px solid #e5e7eb;
+}
+
+
+/* =========================================================
+   FIRST ELEMENT SPACING
+   ========================================================= */
+
+#documentation > :first-child {
+    margin-top: 0 !important;
+}
+
+
+/* =========================================================
+   LAST ELEMENT SPACING
+   ========================================================= */
+
+#documentation > :last-child {
+    margin-bottom: 0 !important;
+}
+
+
+/* =========================================================
+   DOCUMENTATION SCROLLBAR
+   ========================================================= */
+
+#documentation::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+}
+
+#documentation::-webkit-scrollbar-track {
+    background: #f8fafc;
+}
+
+#documentation::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+
+#documentation::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}

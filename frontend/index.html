@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Technical Documentation Generator</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+
+    <div class="container">
+
+        <!-- HEADER -->
+        <header class="header">
+
+            <div class="brand">
+
+                <div class="logo-icon">
+                    AI
+                </div>
+
+                <div>
+                    <h1>Technical Documentation Generator</h1>
+
+                    <p>
+                        Transform your codebase into professional
+                        technical documentation with AI.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="header-badge">
+                AI Powered
+            </div>
+
+        </header>
+
+
+        <main>
+
+            <!-- UPLOAD SECTION -->
+            <section class="upload-card">
+
+                <div class="section-icon">
+                    📦
+                </div>
+
+                <h2>Analyze Your Project</h2>
+
+                <p class="description">
+                    Upload your project as a ZIP file. Our AI will
+                    analyze your source code, understand the project
+                    structure, and generate technical documentation.
+                </p>
+
+
+                <!-- DROP AREA -->
+                <label
+                    for="zipFile"
+                    class="upload-area"
+                    id="uploadArea"
+                >
+
+                    <div class="upload-icon">
+                        ↑
+                    </div>
+
+                    <h3>
+                        Drop your ZIP file here
+                    </h3>
+
+                    <p>
+                        or click to browse your computer
+                    </p>
+
+                    <span>
+                        Supported format: .zip
+                    </span>
+
+                </label>
+
+
+                <input
+                    type="file"
+                    id="zipFile"
+                    accept=".zip"
+                    hidden
+                >
+
+
+                <!-- SELECTED FILE -->
+                <div
+                    id="fileInfo"
+                    class="file-info hidden"
+                >
+
+                    <div class="file-icon">
+                        📄
+                    </div>
+
+                    <div class="file-details">
+
+                        <strong id="fileName">
+                            project.zip
+                        </strong>
+
+                        <p id="fileSize">
+                            Ready for analysis
+                        </p>
+
+                    </div>
+
+                    <button
+                        id="removeFile"
+                        class="remove-file"
+                        type="button"
+                    >
+                        ×
+                    </button>
+
+                </div>
+
+
+                <!-- ANALYZE -->
+                <button
+    type="button"
+    id="analyzeButton"
+    class="analyze-button"
+    disabled
+>
+                    <span>Analyze Project</span>
+                    <span class="button-arrow">→</span>
+                </button>
+
+
+                <!-- LOADING -->
+                <div
+                    id="loading"
+                    class="loading hidden"
+                >
+
+                    <div class="spinner"></div>
+
+                    <div>
+
+                        <strong>
+                            Analyzing your project...
+                        </strong>
+
+                        <p>
+                            AI is reading your source code and
+                            generating documentation.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ERROR -->
+            <div
+                id="errorMessage"
+                class="error-message hidden"
+            ></div>
+
+
+            <!-- RESULTS -->
+            <section
+                id="resultSection"
+                class="result-section hidden"
+            >
+
+                <!-- RESULT HEADER -->
+                <div class="result-header">
+
+                    <div>
+
+                        <div class="success-label">
+                            ● Analysis Complete
+                        </div>
+
+                        <h2>
+                            Documentation Generated
+                        </h2>
+
+                        <p id="resultSummary">
+                            Your project documentation has been
+                            generated successfully.
+                        </p>
+
+                    </div>
+
+                    <div
+                        id="statusBadge"
+                        class="status-badge"
+                    >
+                        ✓ Valid
+                    </div>
+
+                </div>
+
+
+                <!-- STATISTICS -->
+                <div class="stats">
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon">
+                            📁
+                        </div>
+
+                        <div>
+
+                            <strong id="filesChecked">
+                                0
+                            </strong>
+
+                            <p>
+                                Files Analyzed
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon">
+                            ⚙️
+                        </div>
+
+                        <div>
+
+                            <strong id="functionsChecked">
+                                0
+                            </strong>
+
+                            <p>
+                                Functions Found
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon warning-icon">
+                            ⚠️
+                        </div>
+
+                        <div>
+
+                            <strong id="warningsCount">
+                                0
+                            </strong>
+
+                            <p>
+                                Warnings
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- VALIDATION -->
+                <div class="validation-card">
+
+                    <div class="validation-title">
+
+                        <div>
+
+                            <h3>
+                                Validation Result
+                            </h3>
+
+                            <p>
+                                Documentation quality check
+                            </p>
+
+                        </div>
+
+                        <span
+                            id="validationIcon"
+                            class="validation-icon"
+                        >
+                            ✓
+                        </span>
+
+                    </div>
+
+
+                    <div id="validationMessage">
+                        Documentation passed validation.
+                    </div>
+
+
+                    <div
+                        id="warningsContainer"
+                        class="warnings-container"
+                    ></div>
+
+                </div>
+
+
+                <!-- DOCUMENTATION -->
+                <div class="documentation-card">
+
+                    <div class="documentation-header">
+
+                        <div>
+
+                            <h3>
+                                Generated Documentation
+                            </h3>
+
+                            <p>
+                                AI-generated technical documentation
+                            </p>
+
+                        </div>
+
+
+                        <div class="documentation-actions">
+
+                            <button
+                                id="copyButton"
+                                class="secondary-button"
+                                type="button"
+                            >
+                                📋 Copy
+                            </button>
+
+                            <a
+                                id="downloadButton"
+                                class="download-button"
+                                href="#"
+                            >
+                                ↓ Download
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="documentation-meta">
+
+                        <span>
+                            Markdown
+                        </span>
+
+                        <span>
+                            AI Generated
+                        </span>
+
+                        <span>
+                            Validated
+                        </span>
+
+                    </div>
+
+
+                    <div id="documentation" class="documentation-content"></div>
+
+                </div>
+
+
+                <!-- NEW ANALYSIS -->
+                <div class="new-analysis">
+
+                    <p>
+                        Want to analyze another project?
+                    </p>
+
+                    <button
+                        id="newAnalysisButton"
+                        type="button"
+                    >
+                        ← Analyze Another Project
+                    </button>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- FOOTER -->
+        <footer>
+
+            <p>
+                Built with
+                <strong>FastAPI</strong>
+                +
+                <strong>Gemini AI</strong>
+            </p>
+
+            <span>
+                AI Technical Documentation Generator
+            </span>
+
+        </footer>
+
+    </div>
+
+
+    <!-- MARKDOWN RENDERER -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <!-- APPLICATION JAVASCRIPT -->
+    <script src="script.js" defer></script>
+
+</body>
+
+</html>
