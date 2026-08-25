@@ -85,6 +85,26 @@ User downloads Markdown file
 * Python virtual environment
 * Markdown
 
+## 📸 Application Screenshots
+
+### 1. Upload Project
+
+The application allows users to upload their Python project as a ZIP file for analysis.
+
+![Upload Interface](screenshots/upload-interface.png)
+
+### 2. AI Documentation Generation
+
+After analysis, the application displays the number of files analyzed, functions detected, validation status, and generated documentation.
+
+![Generated Documentation](screenshots/generated-documentation.png)
+
+### 3. Generated Technical Documentation
+
+The generated technical documentation is displayed directly in the application and can be downloaded as a Markdown file.
+
+![Technical Documentation](screenshots/technical-documentation.png)
+
 ## ⚙️ Setup and Installation
 
 ### 1. Clone the repository
