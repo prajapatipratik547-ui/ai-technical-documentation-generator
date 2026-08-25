@@ -110,7 +110,7 @@ The generated technical documentation is displayed directly in the application a
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/ai-technical-documentation-generator.git
+git clone https://github.com/prajapatipratik547-ui/ai-technical-documentation-generator.git
 cd ai-technical-documentation-generator
 ```
 
