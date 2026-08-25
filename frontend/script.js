@@ -1,4 +1,4 @@
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = "https://ai-technical-documentation-generator.onrender.com";
 
 
 /* =========================
@@ -426,7 +426,7 @@ analyzeButton.addEventListener(
             ) {
 
                 showError(
-                    "Unable to connect to the backend server. Make sure FastAPI is running on http://127.0.0.1:8000."
+                    "Unable to connect to the backend server. Make sure FastAPI is running on https://ai-technical-documentation-generator.onrender.com."
                 );
 
             } else {
